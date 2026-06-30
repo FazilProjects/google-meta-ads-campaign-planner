@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Google &amp; Meta Ads Campaign Planner Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="app-header">
+    <div class="header-shell">
+      <div>
+        <p class="eyebrow">Portfolio campaign planning dashboard</p>
+        <h1>Google &amp; Meta Ads Campaign Report Generator</h1>
+      </div>
+      <div class="header-actions" aria-label="Dashboard actions">
+        <button class="ghost-button" id="resetPlanButton" type="button">Reset</button>
+        <button class="primary-button" id="exportPlanButton" type="button">Export Report</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="dashboard-shell">
+    <section class="status-strip" aria-label="Project status">
+      <div>
+        <span class="status-label">Builder</span>
+        <strong>Fazil Waseem</strong>
+      </div>
+      <div>
+        <span class="status-label">Workflow</span>
+        <strong>Short brief to generated campaign report</strong>
+      </div>
+      <div>
+        <span class="status-label">Scope</span>
+        <strong>Local planning suggestions, no ad platform connection</strong>
+      </div>
+    </section>
+
+    <section class="workspace-grid">
+      <aside class="panel brief-panel" aria-labelledby="briefTitle">
+        <div class="section-heading">
+          <span class="accent-bar blue"></span>
+          <div>
+            <p class="eyebrow">Step 01</p>
+            <h2 id="briefTitle">Business Brief</h2>
+          </div>
+        </div>
+
+        <form class="brief-form" id="plannerForm">
+          <label>
+            Business name
+            <input id="businessName" name="businessName" type="text" placeholder="Example: Bright Dental Studio">
+          </label>
+
+          <label>
+            Business type
+            <select id="businessType" name="businessType">
+              <option>Local service business</option>
+              <option>Dental clinic</option>
+              <option>Ecommerce store</option>
+              <option>B2B lead generation</option>
+              <option>Professional service</option>
+              <option>Education or coaching</option>
+              <option>Other business type</option>
+            </select>
+          </label>
+
+          <label>
+            Offer
+            <input id="offer" name="offer" type="text" placeholder="Free consultation, 20% off, demo booking">
+          </label>
+
+          <div class="field-grid">
+            <label>
+              Target location
+              <input id="targetLocation" name="targetLocation" type="text" placeholder="City, country, or region">
+            </label>
+            <label>
+              Monthly budget
+              <input id="monthlyBudget" name="monthlyBudget" type="text" inputmode="decimal" value="1500">
+            </label>
+            <label>
+              Currency
+              <select id="currencyCode" name="currencyCode">
+                <option value="PKR">PKR</option>
+                <option value="USD">USD</option>
+                <option value="GBP">GBP</option>
+                <option value="AED">AED</option>
+              </select>
+            </label>
+          </div>
+
+          <label>
+            Short business summary
+            <textarea id="businessSummary" name="businessSummary" rows="5" placeholder="Briefly describe the product or service, audience, problem solved, and campaign context."></textarea>
+          </label>
+
+          <button class="primary-button full-action" id="generateReportButton" type="button">Generate Campaign Report</button>
+        </form>
+      </aside>
+
+      <section class="panel objective-panel" aria-labelledby="objectiveTitle">
+        <div class="section-heading">
+          <span class="accent-bar red"></span>
+          <div>
+            <p class="eyebrow">Step 02</p>
+            <h2 id="objectiveTitle">Campaign Objective</h2>
+          </div>
+        </div>
+
+        <div class="segmented-control" role="radiogroup" aria-label="Campaign objective">
+          <button class="segment active" type="button" data-objective="lead-generation" aria-pressed="true">Lead Generation</button>
+          <button class="segment" type="button" data-objective="ecommerce" aria-pressed="false">Ecommerce</button>
+          <button class="segment" type="button" data-objective="service-business" aria-pressed="false">Service Business</button>
+        </div>
+
+        <div class="objective-summary" id="objectiveSummary">
+          <span class="badge blue">Search intent</span>
+          <span class="badge green">Lead capture</span>
+          <span class="badge yellow">Retargeting</span>
+        </div>
+
+        <div class="plan-summary" id="campaignSummary">
+          Enter a short brief, choose an objective, then generate a complete local planning report. This dashboard does not connect to Google Ads, Meta Ads, or any external API.
+        </div>
+
+        <div class="kpi-grid" aria-label="Suggested planning assumptions">
+          <article class="kpi-card">
+            <span>Default Split</span>
+            <strong id="splitPreview">60 / 30 / 10</strong>
+          </article>
+          <article class="kpi-card">
+            <span>Main KPI</span>
+            <strong id="primaryKpiPreview">Qualified leads</strong>
+          </article>
+          <article class="kpi-card">
+            <span>Report Mode</span>
+            <strong>Local JS</strong>
+          </article>
+        </div>
+      </section>
+    </section>
+
+    <section class="report-shell" id="reportSection" aria-labelledby="reportTitle">
+      <div class="report-header">
+        <div>
+          <p class="eyebrow">Generated deliverable</p>
+          <h2 id="reportTitle">Generated Campaign Report</h2>
+        </div>
+        <span class="report-status" id="reportStatus">Waiting for brief</span>
+      </div>
+
+      <div class="empty-report" id="emptyReport">
+        <strong>No campaign report generated yet.</strong>
+        <p>Fill in the short business brief and click Generate Campaign Report to create a complete local planning report with channel strategy, keywords, ad copy, budget allocation, funnel planning, KPI targets, and a 7-day launch plan.</p>
+      </div>
+
+      <div class="generated-report is-hidden" id="generatedReport">
+        <article class="report-card executive-card">
+          <div class="report-card-heading">
+            <span class="accent-bar blue"></span>
+            <div>
+              <p class="eyebrow">A</p>
+              <h3>Executive Summary</h3>
+            </div>
+          </div>
+          <p id="executiveSummary"></p>
+        </article>
+
+        <article class="report-card strategy-card">
+          <div class="report-card-heading">
+            <span class="accent-bar red"></span>
+            <div>
+              <p class="eyebrow">B</p>
+              <h3>Recommended Channel Strategy</h3>
+            </div>
+          </div>
+          <div class="strategy-grid" id="channelStrategy"></div>
+        </article>
+
+        <article class="report-card">
+          <div class="report-card-heading">
+            <span class="accent-bar blue"></span>
+            <div>
+              <p class="eyebrow">C</p>
+              <h3>Google Ads Plan</h3>
+            </div>
+          </div>
+          <div class="detail-grid" id="googleAdsPlan"></div>
+        </article>
+
+        <article class="report-card">
+          <div class="report-card-heading">
+            <span class="accent-bar red"></span>
+            <div>
+              <p class="eyebrow">D</p>
+              <h3>Meta Ads Plan</h3>
+            </div>
+          </div>
+          <div class="detail-grid" id="metaAdsPlan"></div>
+        </article>
+
+        <article class="report-card wide-card">
+          <div class="report-card-heading">
+            <span class="accent-bar yellow"></span>
+            <div>
+              <p class="eyebrow">E</p>
+              <h3>Ad Copy Variations</h3>
+            </div>
+          </div>
+          <div class="ad-variation-grid" id="adCopyVariations"></div>
+        </article>
+
+        <article class="report-card">
+          <div class="report-card-heading">
+            <span class="accent-bar green"></span>
+            <div>
+              <p class="eyebrow">F</p>
+              <h3>Budget Allocation</h3>
+            </div>
+          </div>
+          <div class="budget-output report-budget" id="budgetAllocation"></div>
+        </article>
+
+        <article class="report-card">
+          <div class="report-card-heading">
+            <span class="accent-bar green"></span>
+            <div>
+              <p class="eyebrow">G</p>
+              <h3>Funnel &amp; Landing Page Plan</h3>
+            </div>
+          </div>
+          <div class="detail-grid" id="funnelPlan"></div>
+        </article>
+
+        <article class="report-card">
+          <div class="report-card-heading">
+            <span class="accent-bar blue"></span>
+            <div>
+              <p class="eyebrow">H</p>
+              <h3>KPI Targets</h3>
+            </div>
+          </div>
+          <div class="kpi-target-grid" id="kpiTargets"></div>
+        </article>
+
+        <article class="report-card wide-card">
+          <div class="report-card-heading">
+            <span class="accent-bar yellow"></span>
+            <div>
+              <p class="eyebrow">I</p>
+              <h3>7-Day Launch Plan</h3>
+            </div>
+          </div>
+          <div class="launch-plan" id="launchPlan"></div>
+        </article>
+
+        <article class="report-card wide-card">
+          <div class="report-card-heading">
+            <span class="accent-bar red"></span>
+            <div>
+              <p class="eyebrow">Notes</p>
+              <h3>Optimization Notes</h3>
+            </div>
+          </div>
+          <ul class="report-list" id="optimizationNotes"></ul>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="app-footer">
+    <p>Planning dashboard portfolio project by Fazil Waseem. Not affiliated with Google, Meta, or any ads platform.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
