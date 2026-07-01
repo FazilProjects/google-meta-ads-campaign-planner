@@ -1,49 +1,104 @@
-# Google & Meta Ads Campaign Planner Dashboard
+# Google & Meta Ads Campaign Report Generator
 
-A professional frontend portfolio project by Fazil Waseem for planning Google Ads and Meta Ads campaigns across lead generation, ecommerce, and service business use cases.
+A professional frontend portfolio project that generates a structured campaign planning report for Google Ads and Meta Ads using a short business brief.
 
-This is a static campaign planning dashboard. It is not a real advertising platform, does not connect to Google Ads or Meta Ads accounts, and does not claim to launch or manage live campaigns.
+Live Demo: https://fazilprojects.github.io/google-meta-ads-campaign-planner/
 
-## Project Goal
+## Project Purpose
 
-Build a clean, premium marketing-tech dashboard that helps organize the core thinking behind paid media campaigns:
+This project was built by Fazil Waseem as a performance marketing portfolio project.
 
-- Business objective
-- Audience and offer
-- Google Ads structure
-- Meta Ads structure
-- Keyword ideas
-- Ad copy
+The goal is to show practical understanding of campaign planning workflows for:
+
+- Google Ads
+- Meta Ads
+- Lead generation
+- Ecommerce campaigns
+- Local service businesses
 - Budget allocation
-- Funnel readiness
-- Launch checklist
-- Reporting and KPIs
-- Exportable campaign plan
+- Ad copy planning
+- Funnel and landing page planning
+- KPI tracking
+- Campaign launch checklists
+
+This is not a real ads platform and does not connect to Google Ads, Meta Ads, ad accounts, APIs, or live campaign data. It is a local JavaScript-based campaign planning dashboard.
+
+## What It Does
+
+The user enters a short business brief, selects a campaign objective, and the dashboard generates a complete campaign planning report.
+
+The generated report includes:
+
+- Executive summary
+- Recommended channel strategy
+- Google Ads plan
+- Meta Ads plan
+- Suggested ad groups
+- Keyword ideas
+- Negative keyword ideas
+- Audience segments
+- Creative angles
+- Ad copy variations
+- Budget allocation
+- Funnel and landing page plan
+- KPI targets
+- 7-day launch plan
+- Optimization notes
+
+## Key Features
+
+- Short brief to full campaign report workflow
+- Campaign objective selector
+- Local industry-specific report generation
+- Google Ads and Meta Ads planning sections
+- Currency selector
+- Budget allocation calculator
+- Customer-facing ad copy variations
+- KPI target suggestions
+- Export report as a text file
+- Reset functionality
+- Responsive dashboard layout
+- No external APIs
+- No external frameworks
+
+## Test Example
+
+Example campaign used for testing:
+
+**Business:** Bright Dental Studio  
+**Business type:** Local service business  
+**Offer:** Free dental consultation + 20% off first teeth cleaning  
+**Location:** Karachi, Pakistan  
+**Budget:** PKR 150,000  
+**Objective:** Lead Generation  
+
+The dashboard generated a dental-specific campaign report with keywords, ad copy, budget allocation, funnel notes, KPI targets, and a 7-day launch plan.
 
 ## Tech Stack
 
 - HTML
 - CSS
 - JavaScript
-- No external frameworks or libraries
-- GitHub Pages compatible
+- GitHub Pages
 
-## Files
+## Folder Structure
 
-- `index.html` - Dashboard layout and content structure
-- `style.css` - Responsive dashboard design system and component styling
-- `script.js` - Lightweight planner interactions and export behavior
-- `docs/PROJECT_BRIEF.md` - Project strategy and scope
-- `docs/DESIGN_SYSTEM.md` - Visual direction, layout rules, and component guidance
-- `docs/CONTENT.md` - Dashboard copy, honest positioning, and content notes
-- `AGENTS.md` - Guidance for future AI/coding agents working on the project
+```text
+.
+├── index.html
+├── style.css
+├── script.js
+├── README.md
+├── AGENTS.md
+└── docs/
+    ├── PROJECT_BRIEF.md
+    ├── DESIGN_SYSTEM.md
+    └── CONTENT.md
 
-## Portfolio Positioning
+## Author
 
-This project is designed to show practical understanding of performance marketing workflows while Fazil Waseem continues learning Google Ads, Meta Ads, lead generation, ecommerce marketing, and AI-assisted marketing systems.
+### Fazil Waseem
 
-## Local Use
-
-Open `index.html` in a browser.
-
-No build step is required.
+GitHub: https://github.com/FazilProjects
+Portfolio: https://fazilprojects.github.io/fazil-waseem-portfolio/
+LinkedIn: https://www.linkedin.com/in/fazil-waseem/
