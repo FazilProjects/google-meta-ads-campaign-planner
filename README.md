@@ -94,11 +94,3 @@ The dashboard generated a dental-specific campaign report with keywords, ad copy
     ├── PROJECT_BRIEF.md
     ├── DESIGN_SYSTEM.md
     └── CONTENT.md
-
-## Author
-
-### Fazil Waseem
-
-GitHub: https://github.com/FazilProjects
-Portfolio: https://fazilprojects.github.io/fazil-waseem-portfolio/
-LinkedIn: https://www.linkedin.com/in/fazil-waseem/
