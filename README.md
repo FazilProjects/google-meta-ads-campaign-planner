@@ -6,7 +6,7 @@ Live Demo: https://fazilprojects.github.io/google-meta-ads-campaign-planner/
 
 ## Screenshot
 
-google-meta-ads-campaign-planner/assets/screenshots/campaign-report-generator-dashboard.png
+![Google & Meta Ads Campaign Report Generator](campaign-report-generator-dashboard.png)
 ## Project Purpose
 
 This project was built by Fazil Waseem as a performance marketing portfolio project.
